@@ -1,0 +1,34 @@
+INSERT INTO `Categoria` (`nome_categoria`) VALUES
+('Cucito'),
+('Set Asilo'),
+('Biancheria');
+
+INSERT INTO `Prodotto` (`idfCategoria`, `nome`, `descrizione`, `prezzo`, `qta`, `linkImg`) VALUES
+(2, 'Puntaspilli', 'Puntaspilli artigianale imbottito.', 12.50, 15, 'https://via.placeholder.com/150'),
+(3, 'Sacca Asilo', 'Sacca in cotone con nome ricamato a mano.', 22.00, 8, 'https://via.placeholder.com/150'),
+(4, 'Runner da Tavola', 'Runner antimacchia con motivi.', 18.90, 20, 'https://via.placeholder.com/150');
+
+INSERT INTO `Utente` (`email`, `password_hash`, `nome`, `cognome`, `indirizzo`, `livello`) VALUES
+('giovannino@gmail.com', '$2y$10$SZVL5g9jfCwQ4tirZktMqOZPMRCBovcwX1/Vk4y3kwL2ENXq0Q3Ji', 'Giovanni', 'Galli', 'Via Nazionale 12, Roma', 1),
+('marcolinopolo@gmail.com', '$2y$10$SZVL5g9jfCwQ4tirZktMqOZPMRCBovcwX1/Vk4y3kwL2ENXq0Q3Ji', 'Marco', 'Polo', 'Corso Vittorio 45, Milano', 1),
+('paolinovillaggino@gmail.com', '$2y$10$SZVL5g9jfCwQ4tirZktMqOZPMRCBovcwX1/Vk4y3kwL2ENXq0Q3Ji', 'Paolo', 'Villaggio', 'Piazza Dante 3, Napoli', 1);
+
+INSERT INTO `Carrello` (`idCarrello`) VALUES
+(1),
+(2),
+(3);
+
+INSERT INTO `DettaglioCarrello` (`idfCarrello`, `idfProdotto`, `qta`) VALUES
+(1, 3, 2), 
+(2, 4, 1),
+(3, 5, 4);
+
+INSERT INTO `Ordine` (`idfUtente`, `data_ordine`, `totale`, `pesoTotale`, `indirizzo`) VALUES
+(3, '2023-10-25 14:33:00', 25.00, 0.30, 'Via Nazionale 12, Roma'),
+(4, '2025-03-05 15:35:00', 22.00, 0.50, 'Corso Vittorio 45, Milano'),
+(5, '2022-10-02 09:09:09', 75.60, 1.20, 'Piazza Dante 3, Napoli');
+
+INSERT INTO `DettagliOrdine` (`idfOrdine`, `idfProdotto`, `qta`, `prezzo`) VALUES
+(1, 3, 2, 12.50),
+(2, 4, 1, 22.00),
+(3, 5, 4, 18.90);

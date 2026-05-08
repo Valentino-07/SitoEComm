@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 15px 5%;
+    border-bottom: 1px solid #eee;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#home {
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+#home:hover {
+    transform: scale(1.1);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.logo h1 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #34495e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #7b2cb1; 
+}
+
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.auth-link {
+    text-decoration: none;
+    color: #34495e;
+    font-size: 0.85rem;
+    font-weight: 700; 
+    transition: color 0.3s ease;
+    text-transform: uppercase; 
+}
+
+.auth-link:hover {
+    color: #7b2cb1;
+}
+
+.divider {
+    color: #bdc3c7;
+    font-weight: 300;
+    user-select: none;
+}
+
+main {
+    flex: 1; 
+}
+
+#sfondo {
+    width: 100%;
+    height: 81.7vh;
+    background-image: url('immagini/sfondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    background-color: #eee;
+    color: #2c3e50; 
+    padding: 12px 5px;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: #34495e;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+    .auth-section {
+        gap: 5px;
+    }
+    
+    .auth-link {
+        font-size: 0.75rem;
+    }
+}
