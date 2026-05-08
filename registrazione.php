@@ -7,6 +7,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = htmlspecialchars($_POST["email-reg"]);
         $password = $_POST["password-reg"];
         $conferma_password = $_POST["conferma-password-reg"];
+        
+        $nome = htmlspecialchars($_POST["nome-reg"]);
+        $cognome = htmlspecialchars($_POST["cognome-reg"]);
+        $indirizzo = htmlspecialchars($_POST["indirizzo-reg"]);
+
         if($password !== $conferma_password){
             $errore = "Le password non coincidono!";
         } else {
@@ -19,8 +24,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             } else {
                 $password_hash = password_hash($password, PASSWORD_DEFAULT);
                 $livello_default = 1;
-                $stmt_ins = $con->prepare("INSERT INTO Utente (email, password_hash, livello) VALUES (?, ?, ?)");
-                $stmt_ins->bind_param("ssi", $email, $password_hash, $livello_default);
+                $stmt_ins = $con->prepare("INSERT INTO Utente (email, password_hash, nome, cognome, indirizzo, livello) VALUES (?, ?, ?, ?, ?, ?)");
+                $stmt_ins->bind_param("sssssi", $email, $password_hash, $nome, $cognome, $indirizzo, $livello_default);
                 if($stmt_ins->execute()){
                     header("Location: login.php?registrato=1");
                     exit();
@@ -51,14 +56,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             <h2>Crea il tuo account</h2>
             
-            <?php if(isset($errore)): ?>
-                <p class="error-msg"><?php echo $errore; ?></p>
-            <?php endif; ?>
+            <?php 
+            if(isset($errore)){
+                echo "<p class='error-msg'>" . $errore . "</p>";
+            }
+            ?>
 
             <form method="post" action="" name="dati-registrazione">
                 <div class="input-group">
                     <label for="email-reg">Email</label>
                     <input type="email" name="email-reg" id="email-reg" placeholder="Inserisci la tua e-mail" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="nome-reg">Nome</label>
+                    <input type="text" name="nome-reg" id="nome-reg" placeholder="Il tuo nome" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="cognome-reg">Cognome</label>
+                    <input type="text" name="cognome-reg" id="cognome-reg" placeholder="Il tuo cognome" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="indirizzo-reg">Indirizzo</label>
+                    <input type="text" name="indirizzo-reg" id="indirizzo-reg" placeholder="Via, Città, CAP" required>
                 </div>
 
                 <div class="input-group">
