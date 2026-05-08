@@ -96,7 +96,7 @@ $totale_carrello = 0;
 
 <header>
     <div class="header-container">
-        <a id="home" href="indexLog.html">
+        <a id="home" href="indexLog.php">
             <div class="logo">
                 <img src="immagini/icon.jpeg" alt="Logo">
                 <h1>ArteAri</h1>
@@ -105,7 +105,7 @@ $totale_carrello = 0;
         <nav>
             <ul>
                 <li><a href="shop.php">SHOP</a></li>
-                <li><a href="indexLog.html">HOME</a></li>
+                <li><a href="indexLog.php">HOME</a></li>
                 <li><a href="carrello.php" class="active">CARRELLO</a></li>
                 <li><a href="account.php">IL MIO ACCOUNT</a></li>
             </ul>

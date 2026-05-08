@@ -102,7 +102,7 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
 
 <header>
     <div class="header-container">
-        <a id="home" href="indexLog.html">
+        <a id="home" href="indexLog.php">
             <div class="logo">
                 <img src="immagini/icon.jpeg" alt="Logo">
                 <h1>ArteAri</h1>
@@ -110,7 +110,7 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
         </a>
         <nav>
             <ul>
-                <li><a href="indexLog.html">HOME</a></li>
+                <li><a href="indexLog.php">HOME</a></li>
                 <li><a href="shop.php" class="active">SHOP</a></li>
                 <li><a href="carrello.php">CARRELLO</a></li>
                 <li><a href="account.php">IL MIO ACCOUNT</a></li>

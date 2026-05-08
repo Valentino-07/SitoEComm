@@ -1,3 +1,12 @@
+<?php
+require("connessioneDB.php");
+session_start();
+
+if (!isset($_SESSION["utente"])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -11,7 +20,7 @@
 
 <header>
     <div class="header-container">
-        <a id="home" href="indexLog.html">
+        <a id="home" href="indexLog.php">
             <div class="logo">
                 <img src="immagini/icon.jpeg" alt="Logo">
                 <h1>ArteAri</h1>
@@ -20,7 +29,7 @@
 
         <nav>
             <ul>
-                <li><a href="indexLog.html" class="active">HOME</a></li>
+                <li><a href="indexLog.php" class="active">HOME</a></li>
                 <li><a href="shop.php">SHOP</a></li>
                 <li><a href="carrello.php">CARRELLO</a></li>
                 <li><a href="account.php">IL MIO ACCOUNT</a></li>

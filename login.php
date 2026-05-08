@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $_SESSION["utente"] = $riga;
                 
                 if($_SESSION["utente"]["livello"] == 1)
-                    header("Location: indexLog.html");
+                    header("Location: indexLog.php");
                 elseif($_SESSION["utente"]["livello"] == 2)
                     header("Location: amministrazione.php");
                 exit();

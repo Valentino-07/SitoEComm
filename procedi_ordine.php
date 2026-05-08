@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["conferma_pagamento"]))
 
 <header>
     <div class="header-container">
-        <a id="home" href="indexLog.html">
+        <a id="home" href="indexLog.php">
             <div class="logo">
                 <img src="immagini/icon.jpeg" alt="Logo">
                 <h1>ArteAri</h1>
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["conferma_pagamento"]))
         </a>
         <nav>
             <ul>
-                <li><a href="indexLog.html">HOME</a></li>
+                <li><a href="indexLog.php">HOME</a></li>
                 <li><a href="shop.php">SHOP</a></li>
                 <li><a href="carrello.php">CARRELLO</a></li>
                 <li><a href="account.php">IL MIO ACCOUNT</a></li>
