@@ -24,7 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["conferma_pagamento"]))
         $user_data = $res_user->fetch_assoc();
         $id_u = $user_data['idUtente'];
         
-        $indirizzo_consegna = !empty($user_data['indirizzo']) ? $user_data['indirizzo'] : 'Indirizzo non specificato';
+        if(!empty($user_data['indirizzo'])){
+            $indirizzo_consegna = $user_data['indirizzo'];
+        }else{
+            $indirizzo_consegna = 'Indirizzo non specificato';
+        }
 
         $totale_ordine = 0;
         foreach ($_SESSION['carrello'] as $item) {

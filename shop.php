@@ -21,7 +21,7 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
             background: #fff;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 2px solid #34495e; /* Richiamo i bordi del wireframe */
+            border: 2px solid #34495e; 
         }
 
         .shop-header {
@@ -79,7 +79,7 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
 
         .product-info {
             padding: 15px;
-            text-align: left; /* Allineamento del testo come nel disegno */
+            text-align: left; 
         }
 
         .product-name {
@@ -107,10 +107,10 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
             animation: fadeIn 0.5s ease-in-out;
         }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
     </style>
 </head>
 <body>
@@ -149,22 +149,23 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
         <div class="shop-header">
             <h2>Benvenuto nello shop di ArteAri</h2>
         </div>
-
         <?php
         if (isset($_SESSION['success_msg'])) {
             echo '<div class="alert-success">✓ ' . htmlspecialchars($_SESSION['success_msg']) . '</div>';
             unset($_SESSION['success_msg']); 
         }
         ?>
-
         <div class="product-grid">
             <?php
             if (empty($prodotti)) {
                 echo "<p style='grid-column: 1 / -1; text-align: center; color: #7f8c8d;'>Nessun prodotto presente a catalogo.</p>";
             } else {
                 foreach ($prodotti as $p) {
-                    $img_src = !empty($p['linkImg']) ? htmlspecialchars($p['linkImg'], ENT_QUOTES) : 'https://via.placeholder.com/300x200?text=IMG';
-                    
+                    if (!empty($p['linkImg'])) {
+                        $img_src = htmlspecialchars($p['linkImg'], ENT_QUOTES);
+                    } else {
+                        $img_src = 'https://via.placeholder.com/300x200?text=IMG';
+                    }
                     echo '<a href="dettaglio_prodotto.php?id=' . $p['idProdotto'] . '" class="product-card">';
                     echo '  <div class="product-image-container">';
                     echo '      <img src="' . $img_src . '" alt="' . htmlspecialchars($p['nome'], ENT_QUOTES) . '">';
@@ -178,7 +179,6 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
             }
             ?>
         </div>
-
     </div>
 </main>
 
@@ -190,6 +190,5 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 </footer>
-
 </body>
 </html>

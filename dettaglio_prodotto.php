@@ -170,12 +170,6 @@ $prodotto = $risultato->fetch_assoc();
                             <label>Taglia (Altezza in cm)</label>
                             <select name="attributi_dinamici[taglia]" required>
                                 <option value="" disabled selected>-- Seleziona taglia --</option>
-                                <option value="50cm">50 cm (0-1 mesi)</option>
-                                <option value="56cm">56 cm (1-2 mesi)</option>
-                                <option value="62cm">62 cm (2-4 mesi)</option>
-                                <option value="68cm">68 cm (4-6 mesi)</option>
-                                <option value="74cm">74 cm (6-9 mesi)</option>
-                                <option value="80cm">80 cm (9-12 mesi)</option>
                                 <option value="86cm">86 cm (12-18 mesi)</option>
                                 <option value="92cm">92 cm (18-24 mesi)</option>
                                 <option value="98cm">98 cm (2-3 anni)</option>
@@ -227,7 +221,12 @@ $prodotto = $risultato->fetch_assoc();
                           </div>';
                 } 
                 else {
-                    $attributi = !empty($prodotto['attributi_form']) ? json_decode($prodotto['attributi_form'], true) : [];
+                    if(!empty($prodotto['attributi_form'])){
+                        $attributi = json_decode($prodotto['attributi_form'], true);
+                    }
+                    else{
+                        $attributi = [];
+                    }
                     if (!empty($attributi)) {
                         foreach ($attributi as $nome_campo => $valori) {
                             $nome_input = strtolower(str_replace(' ', '_', $nome_campo));

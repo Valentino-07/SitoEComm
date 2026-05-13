@@ -51,13 +51,28 @@ $categorie = $query_categorie->fetch_all(MYSQLI_ASSOC);
     <link rel="stylesheet" href="styleAdmin.css">
     <title>ArteAri - Modifica Prodotto</title>
     <style>
-        .form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
-        .form-group label { font-weight: 600; margin-bottom: 5px; color: #2c3e50; }
+        .form-group { 
+            margin-bottom: 15px;
+            display: flex; 
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: 600; 
+            margin-bottom: 5px; 
+            color: #2c3e50; 
+        }
         .form-group input, .form-group textarea, .form-group select { 
-            padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;
+            padding: 8px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            font-family: inherit;
         }
         .msg-feedback { 
-            padding: 10px; margin-bottom: 15px; background-color: #d4edda; color: #155724; border-radius: 4px; 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            background-color: #d4edda; 
+            color: #155724; 
+            border-radius: 4px; 
         }
     </style>
 </head>
@@ -66,7 +81,7 @@ $categorie = $query_categorie->fetch_all(MYSQLI_ASSOC);
         <header class="admin-header">
             <h1>Modifica Prodotto ID: <?php echo $idProdotto; ?></h1>
             <div class="header-actions">
-                <a href="amministrazione.php" class="btn-logout">Torna alla Dashboard</a>
+                <a href="amministrazione.php" class="btn-logout">Torna alla lista prodotti</a>
             </div>
         </header>
         <main class="content-card">
@@ -78,7 +93,7 @@ $categorie = $query_categorie->fetch_all(MYSQLI_ASSOC);
             <form method="post" action="modificaProdotto.php?id=<?php echo $idProdotto; ?>">     
                 
                 <div class="form-group">
-                    <label>ID Prodotto (PK)</label>
+                    <label>ID Prodotto</label>
                     <input type="text" value="<?php echo $prodotto['idProdotto']; ?>" disabled>
                 </div>
 
@@ -114,7 +129,7 @@ $categorie = $query_categorie->fetch_all(MYSQLI_ASSOC);
                 </div>
 
                 <div class="form-group">
-                    <label for="prezzo">Prezzo (€)</label>
+                    <label for="prezzo">Prezzo</label>
                     <input type="number" name="prezzo" id="prezzo" step="0.01" value="<?php echo $prodotto['prezzo']; ?>" required>
                 </div>
 
@@ -124,7 +139,7 @@ $categorie = $query_categorie->fetch_all(MYSQLI_ASSOC);
                 </div>
 
                 <div class="form-group">
-                    <label for="linkImg">Immagine (URL)</label>
+                    <label for="linkImg">URL immagine</label>
                     <input type="url" name="linkImg" id="linkImg" value="<?php echo htmlspecialchars($prodotto['linkImg'], ENT_QUOTES); ?>">
                 </div>
 

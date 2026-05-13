@@ -30,9 +30,23 @@ $stmt_select->execute();
 $risultato = $stmt_select->get_result();
 $dati_utente = $risultato->fetch_assoc();
 
-$nome = !empty($dati_utente['nome']) ? htmlspecialchars($dati_utente['nome'], ENT_QUOTES) : 'Dato non valorizzato';
-$cognome = !empty($dati_utente['cognome']) ? htmlspecialchars($dati_utente['cognome'], ENT_QUOTES) : 'Dato non valorizzato';
-$indirizzo = !empty($dati_utente['indirizzo']) ? htmlspecialchars($dati_utente['indirizzo'], ENT_QUOTES) : 'Dato non valorizzato';
+if (!empty($dati_utente['nome'])) {
+    $nome = htmlspecialchars($dati_utente['nome'], ENT_QUOTES);
+} else {
+    $nome = 'Dato non valorizzato';
+}
+
+if (!empty($dati_utente['cognome'])) {
+    $cognome = htmlspecialchars($dati_utente['cognome'], ENT_QUOTES);
+} else {
+    $cognome = 'Dato non valorizzato';
+}
+
+if (!empty($dati_utente['indirizzo'])) {
+    $indirizzo = htmlspecialchars($dati_utente['indirizzo'], ENT_QUOTES);
+} else {
+    $indirizzo = 'Dato non valorizzato';
+}
 ?>
 
 <!DOCTYPE html>

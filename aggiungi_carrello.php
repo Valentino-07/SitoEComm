@@ -5,6 +5,7 @@ if (!isset($_SESSION["utente"])) {
     header("Location: login.php");
     exit();
 }
+//per il ricamo personalizzato
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_prod = (int)$_POST['id_prodotto'];
     $taglia = $_POST['taglia'];
