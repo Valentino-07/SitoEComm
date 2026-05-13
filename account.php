@@ -129,7 +129,7 @@ $indirizzo = !empty($dati_utente['indirizzo']) ? htmlspecialchars($dati_utente['
     </div>
 </header>
 
-<main style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 81.7vh; padding-top: 1px;">
+<main>
     <div class="account-container">
         <div class="account-card">
             

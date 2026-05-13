@@ -104,8 +104,8 @@ $totale_carrello = 0;
         </a>
         <nav>
             <ul>
-                <li><a href="shop.php">SHOP</a></li>
                 <li><a href="indexLog.php">HOME</a></li>
+                <li><a href="shop.php">SHOP</a></li>
                 <li><a href="carrello.php" class="active">CARRELLO</a></li>
                 <li><a href="account.php">IL MIO ACCOUNT</a></li>
             </ul>
@@ -116,7 +116,7 @@ $totale_carrello = 0;
     </div>
 </header>
 
-<main style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 81.7vh; padding-top: 1px;">
+<main>
     <div class="cart-container">
         <h2 style="margin-bottom: 30px; color: #2c3e50;">Il tuo Carrello</h2>
 
@@ -126,7 +126,7 @@ $totale_carrello = 0;
                     <th>Prodotto</th>
                     <th>Dettagli</th>
                     <th>Prezzo</th>
-                    <th>Q.tà</th>
+                    <th>Quantità</th>
                     <th>Subtotale</th>
                 </tr>
             </thead>

@@ -1,8 +1,6 @@
 <?php
 require("connessioneDB.php");
 session_start();
-
-// Esecuzione della query per estrarre il catalogo prodotti dal database
 $query = $con->query("SELECT idProdotto, nome, linkImg, prezzo FROM Prodotto");
 $prodotti = $query->fetch_all(MYSQLI_ASSOC);
 ?>
@@ -41,7 +39,6 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
 
         .product-grid {
             display: grid;
-            /* Layout responsivo: le card si adattano alla larghezza, simulando le 3 colonne del disegno */
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
             justify-items: center;
@@ -50,7 +47,7 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
         .product-card {
             width: 100%;
             background: #fff;
-            border: 2px solid #34495e; /* Bordo ricalcato dal mockup */
+            border: 2px solid #34495e; 
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -96,6 +93,24 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
             color: #7b2cb1;
             font-weight: bold;
         }
+
+        .alert-success {
+            background-color: #e8f5e9;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
     </style>
 </head>
 <body>
@@ -128,12 +143,19 @@ $prodotti = $query->fetch_all(MYSQLI_ASSOC);
     </div>
 </header>
 
-<main style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 81.7vh; padding-top: 1px;">
+<main>
     <div class="shop-container">
         
         <div class="shop-header">
             <h2>Benvenuto nello shop di ArteAri</h2>
         </div>
+
+        <?php
+        if (isset($_SESSION['success_msg'])) {
+            echo '<div class="alert-success">✓ ' . htmlspecialchars($_SESSION['success_msg']) . '</div>';
+            unset($_SESSION['success_msg']); 
+        }
+        ?>
 
         <div class="product-grid">
             <?php
