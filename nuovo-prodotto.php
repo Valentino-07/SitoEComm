@@ -108,8 +108,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["aggiungi_prodotto"])) 
             background: #1a252f;
         }
 
-        .success-msg { color: #27ae60; font-weight: bold; margin-bottom: 15px; }
-        .error-msg { color: #c0392b; font-weight: bold; margin-bottom: 15px; }
+        .success-msg { 
+            color: #27ae60; 
+            font-weight: bold; 
+            margin-bottom: 15px; 
+        }
+
+        .error-msg { 
+            color: #c0392b; 
+            font-weight: bold; 
+            margin-bottom: 15px; 
+        }
+        
     </style>
 </head>
 <body>
